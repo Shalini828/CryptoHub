@@ -11,10 +11,10 @@ import Features from "./components/Features";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import BlogDetail from "./components/BlogDetail";
-import BlogArticle from './data/BlogArticle'; // From feature/blog-system-update
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Leaderboard from "./components/Leaderboard";
 import ChangePassword from "./components/ChangePassword";
+import ForgotPassword from "./components/ForgotPassword";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -23,8 +23,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { CoinContext } from "./context/CoinContext";
 import LoadingSpinner from "./components/LoadingSpinner";
-import { Toaster } from "react-hot-toast"; // From main branch
-import ScrollToTop from "./components/ScrollToTop"; // From main branch
+import BlogArticle from './data/BlogArticle';
 
 const App = () => {
   const { isLoading } = useContext(CoinContext);
@@ -75,17 +74,12 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/coin/:coinId" element={<Coin />} />
               <Route path="/pricing" element={<Pricing />} />
-              
-              {/* Blog Routes - Combined from both branches */}
               <Route path="/blog" element={<Blog />} />
-              {/* New route from feature/blog-system-update */}
-              <Route path="/blog/:slug" element={<BlogArticle />} />
-              {/* Keep BlogDetail for backward compatibility */}
-              <Route path="/blog/article/:id" element={<BlogDetail />} />
-              
+              <Route path="/blog/:id" element={<BlogDetail />} />
               <Route path="/features" element={<Features />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/contributors" element={<Contributors />} />
 
               <Route
