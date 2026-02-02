@@ -39,7 +39,7 @@
 
 .spin::before,
 .spin::after {
-    content: '';
+    content: '';  
     position: absolute;
     height: var(--uib-dot-size);
     width: var(--uib-dot-size);
